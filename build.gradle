@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'pe.bconf.study.test'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation      group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.4.4'
+    implementation      group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.4.4'
+    implementation      'junit:junit:4.13.1'
+    implementation      group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+
+    testImplementation  group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.4.4'
+    testImplementation  'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly     'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation  group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.8.0-M1'
+}
+
+test {
+    useJUnitPlatform()
+}
