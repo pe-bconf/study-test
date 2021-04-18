@@ -1,0 +1,39 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 10MB
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    servlet:
+      load-on-startup: 1
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+  freemarker:
+    enabled: false
+    cache: false
+  main:
+    banner-mode: off
+
+server:
+  port: 17070
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/javascript,application/javascript,text/css
+  tomcat:
+    uri-encoding: utf-8
+    accesslog.enabled: true
+    accesslog.rotate: true
+    accesslog.directory: logs
+  servlet:
+    jsp:
+      init-parameters:
+        development: false
+    encoding:
+      charset: UTF-8

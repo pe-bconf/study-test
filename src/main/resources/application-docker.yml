@@ -1,0 +1,24 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 10MB
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: false
+  main:
+    banner-mode: off
+
+server:
+  port: 17070
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/javascript,application/javascript,text/css
+  tomcat:
+    uri-encoding: utf-8
+    accesslog.enabled: true
+    accesslog.rotate: true
+    accesslog.directory: logs
