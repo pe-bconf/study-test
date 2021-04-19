@@ -1,8 +1,10 @@
 package pe.bconf.study.sample.docker.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,7 @@ public class MainController {
 
     @GetMapping("/test")
     @ResponseBody
+    @CrossOrigin("*")
     public Map<String, Object> testClient(HttpServletRequest request, Principal principal){
         Map<String, Object> map = new HashMap<>();
         map.put("RemoteAddr",request.getRemoteAddr());
@@ -41,6 +44,16 @@ public class MainController {
         map.put("headers", listHeader);
         HttpSession session = request.getSession();
         session.setAttribute("testData", request.getHeader("user-agent"));
+        return map;
+    }
+
+    @RequestMapping(value = "/jsonpTest", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Object jsonpTest(){
+        Map<String, Object> map = new HashMap<>();
+        map.put("test", "JSONP");
+        map.put("type", "JSONP");
+
         return map;
     }
 }

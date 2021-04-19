@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * docker에서 실행할 애플리케이션
  */
 @SpringBootApplication
+@ComponentScan(basePackages = "pe.bconf.study.sample")
 public class ApplicationForDocker {
     public static void main(String[] args){
         SpringApplication.run(ApplicationForDocker.class);
