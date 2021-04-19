@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
 import java.util.*;
 
 @Controller
@@ -22,7 +21,7 @@ public class MainController {
     @GetMapping("/test")
     @ResponseBody
     @CrossOrigin("*")
-    public Map<String, Object> testClient(HttpServletRequest request, Principal principal){
+    public Map<String, Object> testClient(HttpServletRequest request){
         Map<String, Object> map = new HashMap<>();
         map.put("RemoteAddr",request.getRemoteAddr());
         map.put("LocalAddr", request.getLocalAddr());
